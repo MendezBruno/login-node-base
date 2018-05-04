@@ -8,6 +8,7 @@ const flash = require('connect-flash');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+var bodyParser = require('body-parser');
 
 const { url } = require('./config/database.js');
 
@@ -23,6 +24,12 @@ app.set('port', process.env.PORT || 3000);
 // middlewares
 app.use(morgan('dev'));
 app.use(cookieParser());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 // app.use(bodyParser.urlencoded({extended: false}));
 // required for passport
 app.use(session({
