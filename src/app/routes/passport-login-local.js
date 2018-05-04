@@ -43,9 +43,9 @@ module.exports = (app, passport) => {
 			res.json(res);
 		});
 */	
-	/*
+	
 	app.post("/signup", function (req, res, next) {
-		passport.authenticate('local-signup', function (err, user, info) {
+		passport.authenticate('local-signup',  function (err, user, info) {
 				if (err) {
 					return next(err)
 				}
@@ -60,15 +60,15 @@ module.exports = (app, passport) => {
 			}
 		)(req, res, next);
 	});
-	*/
-
+	
+/*
 	app.post('/signup', 
 		passport.authenticate('local-signup', {
 		successRedirect: '/profile',
 		failureRedirect: '/signup',
 		failureFlash: true // allow flash messages
 	}));
-
+*/
 
 	//profile view
 	app.get('/profile', isLoggedIn, (req, res) => {

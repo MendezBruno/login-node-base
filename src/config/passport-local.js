@@ -29,7 +29,7 @@ module.exports = function (passport) {
         return done(err);
       }
       if (user) {
-        return done(null, false, req.flash('signupMessage', 'the email is already taken'));
+        return done(null, false,  { message: "'the email is already taken'" } );
       } else {
         var newUser = new User();
         newUser.local.email = email;
