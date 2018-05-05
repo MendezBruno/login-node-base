@@ -12,9 +12,7 @@ var bodyParser = require('body-parser');
 
 const { url } = require('./config/database.js');
 
-mongoose.connect(url, {
-	useMongoClient: true
-});
+mongoose.connect(url);
 
 require('./config/passport-local')(passport);
 
@@ -24,7 +22,6 @@ app.set('port', process.env.PORT || 3000);
 // middlewares
 app.use(morgan('dev'));
 app.use(cookieParser());
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true

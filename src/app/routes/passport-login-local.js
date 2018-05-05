@@ -17,32 +17,6 @@ module.exports = (app, passport) => {
 			}
 		)(req, res, next);
 	});
-/*
-	app.post('/login',
-		passport.authenticate('local-login'),
-		function(req, res) {
-			// If this function gets called, authentication was successful.
-			// `req.user` contains the authenticated user.
-			res.json(res.user);
-		});
-*/
-/*	// signup view
-	app.get('/signup', (req, res) => {
-		res.render('signup', {
-			message: req.flash('signupMessage')
-		});
-	});
-*/
-
-/*
-	app.post("/signup",
-		passport.authenticate('local-signup'),
-		function(req, res) {
-			// If this function gets called, authentication was successful.
-			// `req.user` contains the authenticated user.
-			res.json(res);
-		});
-*/	
 	
 	app.post("/signup", function (req, res, next) {
 		passport.authenticate('local-signup',  function (err, user, info) {
